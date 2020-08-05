@@ -39,7 +39,7 @@ const store = new Vuex.Store({
     },
 
     concatVideos(state, videos){
-      state.videos = this.state.videos.concat(videos);
+      state.videos = state.videos.concat(videos);
     },
 
     setEndOfPage(state, endOfPage) {
@@ -77,7 +77,7 @@ const store = new Vuex.Store({
         commit('setSearchDone', true);
         commit('setNextPageToken', response.nextPageToken);
         commit('setSearchTerm', searchTerm);
-
+       
 
     },
 

@@ -1,11 +1,11 @@
 <template>
-  <div class="VideoPlayer__wrapper" v-if="video" align="center">
-    <div class="col-sm-8 col-sm-push-2">
-      <h2>{{ videoTitle }}</h2>
-      <br />
-      <small>Canal: {{ videoDescription }}</small>
-      <p>{{ videoChannelTitle }}</p>
-      <div class="embed-responsive embed-responsive-16by9">
+  <div class="VideoPlayer__wrapper" v-if="video" >
+    <div class="col-sm-8 col-sm-push-2" align="left">
+      <h3>{{ videoTitle }}</h3>
+      <br/>
+      <h6>Canal: {{ videoChannelTitle }}</h6>
+      <p>{{ videoDescription}}</p>
+      <div class="embed-responsive embed-responsive-16by9" align="center">
         <iframe v-bind:src="url" class="embed-responsive-item"></iframe>
       </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="VideoList__Wrapper" align="center">
+  <div class="VideoList__Wrapper">
     <div class="container row grid">
       <VideoItem
         v-images-loaded:on.progress="imageProgress"
@@ -42,6 +42,10 @@ export default {
       this.isotope = new Isotope(elem, {
         itemSelector: ".card",
         layoutMode: "masonry",
+        masonry: {
+          columnWidth: 25,
+          fitWidth: true,
+        },
       });
     },
 
