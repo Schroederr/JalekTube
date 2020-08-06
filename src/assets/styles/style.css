@@ -1,0 +1,14 @@
+.nav-logo {
+  height: 40px;
+  width: 40px;
+  margin-right: 5px;
+}
+
+.nav-bar {
+  margin-bottom: 5px;
+  background-color: #5ccccd;
+}
+
+.nav-text {
+  color: #343955 !important;
+}

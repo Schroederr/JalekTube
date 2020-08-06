@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md">
-        <b-navbar class="nav-bar" variant="light" type="primary">
-          <b-navbar-brand href="#"><img src="./assets/YouTube-icon.png" class="nav-logo" >Youtube Video Manager</b-navbar-brand>
+        <b-navbar class="nav-bar">
+          <b-navbar-brand href="#" class="nav-text" style="color: white;"><img src="./assets/YouTube-icon.png" class="nav-logo" >JalekTube</b-navbar-brand>
         </b-navbar>
         <YoutubeDash></YoutubeDash>
       </div>
@@ -21,3 +21,7 @@ export default {
   },
 };
 </script>
+
+<style>
+  @import './assets/styles/style.css';
+</style>

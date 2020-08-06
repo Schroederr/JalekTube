@@ -10,6 +10,7 @@ export const searchApi = {
         throw new Error("YouTube API Key missing");
       }
 
+      console.log(options.nextPageToken);
       let params = {
         part: "snippet",
         key: options.apiKey,
