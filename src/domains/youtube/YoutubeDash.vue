@@ -67,5 +67,5 @@ export default {
 </script>
 
 <style>
-  @import '../../assets/styles/youtube.css';
+@import "../../assets/styles/youtube.css";
 </style>

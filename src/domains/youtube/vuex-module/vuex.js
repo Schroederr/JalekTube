@@ -19,7 +19,7 @@ const store = new Vuex.Store({
   mutations: {
     setVideo(state, video) {
       state.video = video;
-      state.url = process.env.VUE_APP_YOUTUBE_EMBED_URL+video.id.videoId;
+      state.url = process.env.VUE_APP_YOUTUBE_EMBED_URL + video.id.videoId;
     },
 
     setVideos(state, videos) {
@@ -38,7 +38,7 @@ const store = new Vuex.Store({
       state.nextPageToken = nextPageToken;
     },
 
-    concatVideos(state, videos){
+    concatVideos(state, videos) {
       state.videos = state.videos.concat(videos);
     },
 
@@ -61,10 +61,10 @@ const store = new Vuex.Store({
       context.commit('setVideo', video);
     },
 
-    async searchVideos({state, commit}, searchTerm) {
+    async searchVideos({ state, commit }, searchTerm) {
 
       commit('setSearchDone', false);
-      
+
       let response = await Search.searchFromYoutube(
         {
           apiKey: process.env.VUE_APP_YOUTUBE_KEY,
@@ -73,16 +73,16 @@ const store = new Vuex.Store({
         }
       );
 
-        commit('setVideos', response.items);
-        commit('setSearchDone', true);
-        commit('setNextPageToken', response.nextPageToken);
-        commit('setSearchTerm', searchTerm);
-       
+      commit('setVideos', response.items);
+      commit('setSearchDone', true);
+      commit('setNextPageToken', response.nextPageToken);
+      commit('setSearchTerm', searchTerm);
+
 
     },
 
-    async searchNextPage({state, commit}){
-      
+    async searchNextPage({ state, commit }) {
+
       commit('setEndOfPage', false);
 
       let response = await Search.searchFromYoutube(

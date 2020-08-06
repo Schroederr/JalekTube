@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -25,7 +24,7 @@ export default {
   methods: {
     handleSubmit() {
       window.eventBus.$emit("searchStarted");
-      this.$store.dispatch('searchVideos', this.searchString);
+      this.$store.dispatch("searchVideos", this.searchString);
     },
   },
 };
