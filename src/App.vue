@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md">
         <b-navbar class="nav-bar">
-          <b-navbar-brand href="#" class="nav-text" style="color: white;"><img src="./assets/YouTube-icon.png" class="nav-logo" >JalekTube</b-navbar-brand>
+          <b-navbar-brand href="#" class="nav-text" style="color: white;"><img src="./assets/jalektube.png" class="nav-logo" >JalekTube</b-navbar-brand>
         </b-navbar>
         <YoutubeDash></YoutubeDash>
       </div>

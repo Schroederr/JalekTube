@@ -8,9 +8,12 @@
   max-height: 250px;
 }
 
+.VideoPlayer__wrapper {
+  margin-bottom: 20px;
+}
+
 .VideoFinder__wrapper {
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 .YoutubeDash__wrapper {
