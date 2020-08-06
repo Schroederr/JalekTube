@@ -1,7 +1,6 @@
 # JalekTube
 
 
-
 ## Project setup
 ```
 npm install

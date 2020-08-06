@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-md">
         <b-navbar class="nav-bar">
-          <b-navbar-brand href="#" class="nav-text" style="color: white;"><img src="./assets/jalektube.png" class="nav-logo" >JalekTube</b-navbar-brand>
+          <b-navbar-brand v-bind:href="baseUrl" class="nav-text" style="color: white;">
+            <img src="./assets/jalektube.png" class="nav-logo" />JalekTube
+          </b-navbar-brand>
         </b-navbar>
         <YoutubeDash></YoutubeDash>
       </div>
@@ -15,13 +17,17 @@
 import YoutubeDash from "./domains/youtube/YoutubeDash";
 
 export default {
-  name: "App",
   components: {
     YoutubeDash,
+  },
+  computed: {
+    baseUrl() {
+      return process.env.VUE_APP_BASE_URL;
+    },
   },
 };
 </script>
 
 <style>
-  @import './assets/styles/style.css';
+@import "./assets/styles/style.css";
 </style>
