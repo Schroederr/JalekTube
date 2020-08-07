@@ -13,33 +13,33 @@
 </template>
 
 <script>
-export default {
-  props: {
-    video: Object,
-  },
+  export default {
+    props: {
+      video: Object,
+    },
 
-  computed: {
-    videoTitle() {
-      let title = this.video.snippet.title.replace(/&quot;/g, '"');
-      return title;
+    computed: {
+      videoTitle() {
+        let title = this.video.snippet.title.replace(/&quot;/g, '"');
+        return title;
+      },
+      videoDescription() {
+        let description = this.video.snippet.description.replace(/&quot;/g, '"');
+        return description;
+      },
+      videoChannelTitle() {
+        let channel = this.video.snippet.channelTitle.replace(/&quot;/g, '"');
+        return channel;
+      },
+      videoImage() {
+        return this.video.snippet.thumbnails.high.url;
+      },
     },
-    videoDescription() {
-      let description = this.video.snippet.description.replace(/&quot;/g, '"');
-      return description;
-    },
-    videoChannelTitle() {
-      let channel = this.video.snippet.channelTitle.replace(/&quot;/g, '"');
-      return channel;
-    },
-    videoImage() {
-      return this.video.snippet.thumbnails.high.url;
-    },
-  },
 
-  methods: {
-    loadVideo() {
-      this.$store.dispatch("selectedVideo", this.video);
+    methods: {
+      loadVideo() {
+        this.$store.dispatch("selectedVideo", this.video);
+      },
     },
-  },
-};
+  };
 </script>

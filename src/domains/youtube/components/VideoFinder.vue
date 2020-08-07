@@ -14,18 +14,18 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      searchString: "",
-    };
-  },
-
-  methods: {
-    handleSubmit() {
-      window.eventBus.$emit("searchStarted");
-      this.$store.dispatch("searchVideos", this.searchString);
+  export default {
+    data() {
+      return {
+        searchString: "",
+      };
     },
-  },
-};
+
+    methods: {
+      handleSubmit() {
+        window.eventBus.$emit("searchStarted");
+        this.$store.dispatch("searchVideos", this.searchString);
+      },
+    },
+  };
 </script>

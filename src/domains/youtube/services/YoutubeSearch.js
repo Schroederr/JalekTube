@@ -1,4 +1,4 @@
-let axios = require("axios");
+import { store } from '../vuex-module/Vuex'
 
 export const searchApi = {
 
@@ -6,28 +6,25 @@ export const searchApi = {
 
     try {
 
-      if (!options.apiKey) {
-        throw new Error("YouTube API Key missing");
-      }
+      let gapi = store.getters.getGapi;
 
       let params = {
         part: "snippet",
-        key: options.apiKey,
         q: options.term,
         maxResults: 20,
         type: "video",
         pageToken: options.nextPageToken
       };
 
-      var response = await axios.get(process.env.VUE_APP_YOUTUBE_SEARCH_URL, { params })
+      var response = await gapi.client.youtube.search.list(params);
 
-      return response.data
+      return response.result
 
     } catch (error) {
       console.log(error);
     }
 
-  }
+  },
 
 }
 

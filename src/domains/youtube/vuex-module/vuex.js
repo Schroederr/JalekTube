@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Search from "../services/YoutubeSearch";
+import YoutubeSearch from "../services/YoutubeSearch";
 
 Vue.use(Vuex);
 
@@ -8,18 +8,17 @@ const store = new Vuex.Store({
 
   state: {
     video: "",
-    videoId: "",
-    url: "",
-    videos: "",
     searchTerm: "",
     nextPageToken: "",
+    videos: Array,
     endOfPage: true,
-    searchDone: false
+    searchDone: false,
+    gapi: Object
   },
+
   mutations: {
     setVideo(state, video) {
       state.video = video;
-      state.url = process.env.VUE_APP_YOUTUBE_EMBED_URL + video.id.videoId;
     },
 
     setVideos(state, videos) {
@@ -45,18 +44,24 @@ const store = new Vuex.Store({
     setEndOfPage(state, endOfPage) {
       state.endOfPage = endOfPage;
     },
+
+    setGapi(state, gapi) {
+      state.gapi = gapi;
+    },
   },
 
   getters: {
-    getSearchTerm: state => {
-      return state.searchTerm
-    },
-    getNextPageToken: state => {
-      return state.nextPageToken
+    getGapi: state => {
+      return state.gapi
     }
   },
 
   actions: {
+
+    storeGapi(context, gapi) {
+      context.commit('setGapi', gapi);
+    },
+
     selectedVideo(context, video) {
       context.commit('setVideo', video);
     },
@@ -65,19 +70,17 @@ const store = new Vuex.Store({
 
       commit('setSearchDone', false);
 
-      let response = await Search.searchFromYoutube(
+      let response = await YoutubeSearch.searchFromYoutube(
         {
-          apiKey: process.env.VUE_APP_YOUTUBE_KEY,
           term: searchTerm,
           nextPageToken: state.nextPageToken,
         }
       );
 
       commit('setVideos', response.items);
-      commit('setSearchDone', true);
       commit('setNextPageToken', response.nextPageToken);
       commit('setSearchTerm', searchTerm);
-
+      commit('setSearchDone', true);
 
     },
 
@@ -85,19 +88,19 @@ const store = new Vuex.Store({
 
       commit('setEndOfPage', false);
 
-      let response = await Search.searchFromYoutube(
+      let response = await YoutubeSearch.searchFromYoutube(
         {
-          apiKey: process.env.VUE_APP_YOUTUBE_KEY,
           term: state.searchTerm,
           nextPageToken: state.nextPageToken,
         }
       );
 
       commit('concatVideos', response.items);
-      commit('setEndOfPage', true);
       commit('setNextPageToken', response.nextPageToken);
+      commit('setEndOfPage', true);
 
-    }
+    },
+
   }
 });
 
