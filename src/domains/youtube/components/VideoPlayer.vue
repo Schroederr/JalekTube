@@ -6,7 +6,7 @@
       <h6>Canal: {{ videoChannelTitle }}</h6>
       <p>{{ videoDescription}}</p>
       <div class="embed-responsive embed-responsive-16by9" align="center">
-        <iframe v-bind:src="videoUrl" class="embed-responsive-item"></iframe>
+        <iframe v-bind:src="videoUrl" class="embed-responsive-item" allowfullscreen="allowfullscreen"></iframe>
       </div>
     </div>
   </div>
