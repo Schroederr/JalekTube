@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import './assets/js/api'
+import './assets/js/gapi'
 
 import Vue from "vue";
 import App from "./App.vue";
@@ -10,9 +10,6 @@ import { store } from './domains/youtube/vuex-module/Vuex';
 
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
-
-window.Vue = require("vue");
-window.eventBus = new Vue({});
 
 Vue.config.productionTip = false;
 
