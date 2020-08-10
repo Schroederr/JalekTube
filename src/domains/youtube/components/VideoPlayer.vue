@@ -33,10 +33,7 @@
         return url;
       },
       videoChannelTitle() {
-        let channelTitle = this.video.snippet.channelTitle.replace(
-          /&quot;/g,
-          '"'
-        );
+        let channelTitle = this.video.snippet.channelTitle.replace(/&quot;/g, '"');
         return channelTitle;
       },
     },

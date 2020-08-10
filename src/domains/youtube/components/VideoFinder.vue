@@ -23,7 +23,6 @@
 
     methods: {
       handleSubmit() {
-        window.eventBus.$emit("searchStarted");
         this.$store.dispatch("searchVideos", this.searchString);
       },
     },
