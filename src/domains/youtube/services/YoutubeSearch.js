@@ -11,7 +11,7 @@ export const searchApi = {
       let params = {
         part: "snippet",
         q: options.term,
-        maxResults: 20,
+        maxResults: 25,
         type: "video",
         pageToken: options.nextPageToken
       };
